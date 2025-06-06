@@ -79,7 +79,7 @@ if saved_model:
             # input_array = np.array(input_values, dtype=float).reshape(1, -1)
             # input_scaled = scaler.transform(input_array)[0]
 
-            pred, prob = saved_model.predict(jawaban.tolist())
+            pred, prob = saved_model.predict(jawaban.tolist()) #(input_scaled.tolist())
             if pred == 1:
                 st.error(f"Hasil: Kemungkinan MENGIDAP Autisme (Probabilitas: {prob:.2f})")
             else:
