@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-import joblib
+import pickle
 from sklearn.preprocessing import StandardScaler
 
 try: 
@@ -17,7 +17,8 @@ st.write("Aplikasi ini menggunakan algoritma Artificial Neural Network (ANN) MLP
 @st.cache_resource
 def load_model():
     try:
-        return joblib.load("ANN_model.pkl")
+        with open("ANN_model.pkl", "rb") as f:
+            return pickle.load(f)
     except:
         return None
 
