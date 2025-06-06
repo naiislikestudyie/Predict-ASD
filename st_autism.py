@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import pickle
-from sklearn.preprocessing import StandardScaler
+#library standarscaler
 
 try: 
     from ann_mlp_manual import ANN
@@ -73,13 +73,13 @@ if saved_model:
                             'A1_Score','A2_Score','A3_Score','A4_Score','A5_Score',
                             'A6_Score','A7_Score','A8_Score','A9_Score','A10_Score']]
             
-            scaler = StandardScaler()
-            fitur_scaled = scaler.fit_transform(fitur)
+            # scaler = StandardScaler()
+            # fitur_scaled = scaler.fit_transform(fitur)
 
-            input_array = np.array(input_values, dtype=float).reshape(1, -1)
-            input_scaled = scaler.transform(input_array)[0]
+            # input_array = np.array(input_values, dtype=float).reshape(1, -1)
+            # input_scaled = scaler.transform(input_array)[0]
 
-            pred, prob = saved_model.predict(input_scaled.tolist())
+            pred, prob = saved_model.predict(jawaban.tolist())
             if pred == 1:
                 st.error(f"Hasil: Kemungkinan MENGIDAP Autisme (Probabilitas: {prob:.2f})")
             else:
